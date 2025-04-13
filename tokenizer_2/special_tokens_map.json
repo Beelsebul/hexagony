@@ -1,0 +1,22 @@
+{
+  "additional_special_tokens": [
+    {
+      "content": "<r>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false
+    },
+    {
+      "content": "<b>",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false
+    }
+  ],
+  "bos_token": "<|startoftext|>",
+  "eos_token": "<|endoftext|>",
+  "pad_token": "<|pad|>",
+  "unk_token": "<|unk|>"
+}
