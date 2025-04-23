@@ -6,7 +6,7 @@ from tkinter import ttk
 
 # Specifying paths
 base_dir = os.path.join(os.path.dirname(__file__), '..')
-model_checkpoint = os.path.join(base_dir, 'mini_red_test', 'checkpoint-1570920')
+model_checkpoint = os.path.join(base_dir, 'mini_red_test', 'checkpoint-1551420_mixed')
 tokenizer_path = os.path.join(base_dir, "tokenizer_2")
 
 # Loading tokenizer and model
@@ -35,7 +35,7 @@ def predict_next_tokens(input_text, top_k=5):
         input_ids = torch.tensor([[tokenizer.bos_token_id]])
     else:
         # Adding <|startoftext|> before the input text
-        input_text = '<|startoftext|> <r>' + input_text
+        input_text = '<|startoftext|>' + input_text
         input_ids = tokenizer.encode(input_text, return_tensors='pt')
 
     with torch.no_grad():

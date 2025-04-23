@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 # Define paths to model checkpoints and tokenizer
 base_path = os.path.join(os.path.dirname(__file__), '..')
-red_model_checkpoint = os.path.join(base_path, 'mini_blue_test', 'checkpoint-785460_ft_b_gen_5')
-blue_model_checkpoint = os.path.join(base_path, 'mini_blue_test', 'checkpoint-785460_ft_b_gen_5')
+red_model_checkpoint = os.path.join(base_path, 'mini_blue_test', 'checkpoint-1551420_mixed')
+blue_model_checkpoint = os.path.join(base_path, 'mini_blue_test', 'checkpoint-1551420_mixed')
 tokenizer_path = os.path.join(base_path, 'tokenizer_2')
 
 # Load the tokenizer and define special tokens
@@ -73,10 +73,10 @@ def next_move():
     current_turn = len(moves.split()) % 2
     if current_turn == 0:
         model = red_model
-        agent_token = '<r>'
+        agent_token = ''
     else:
         model = blue_model
-        agent_token = '<b>'
+        agent_token = ''
 
     top_moves, probs = predict_next_tokens(model, moves, agent_token, top_k=140)
     return jsonify({'next_moves': top_moves, 'probabilities': probs})
